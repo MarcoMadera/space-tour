@@ -9,7 +9,7 @@ import BoxColor from "components/BoxColor";
 import NavBar from "components/NavBar";
 import MainButton, { ButtonType } from "components/MainButton";
 import ALink from "components/ALink";
-import Tabs, { Orientation, SelectorTypes } from "components/Selector";
+import Selector, { Orientation, SelectorTypes } from "components/Selector";
 import NavText from "components/NavText";
 
 export default function Home(): ReactElement {
@@ -141,7 +141,7 @@ export default function Home(): ReactElement {
                 Explore
               </Heading>
             </MainButton>
-            <Tabs
+            <Selector
               id="computer parts"
               type={SelectorTypes.DOTS}
               orientation={Orientation.HORIZONTAL}
@@ -149,8 +149,8 @@ export default function Home(): ReactElement {
               <NavText>Keyboard</NavText>
               <NavText>Screen</NavText>
               <NavText>Mouse</NavText>
-            </Tabs>
-            <Tabs
+            </Selector>
+            <Selector
               id="Planets"
               type={SelectorTypes.DOTS}
               orientation={Orientation.VERTICAL}
@@ -158,18 +158,18 @@ export default function Home(): ReactElement {
               <NavText>MOON</NavText>
               <NavText>MARS</NavText>
               <NavText>EUROPE</NavText>
-            </Tabs>
-            <Tabs id="colors" orientation={Orientation.HORIZONTAL}>
+            </Selector>
+            <Selector id="colors" orientation={Orientation.HORIZONTAL}>
               <NavText>Red</NavText>
               <NavText>Green</NavText>
               <NavText>Blue</NavText>
-            </Tabs>
-            <Tabs id="family" orientation={Orientation.VERTICAL}>
+            </Selector>
+            <Selector id="family" orientation={Orientation.VERTICAL}>
               <NavText>Sister</NavText>
               <NavText>Brother</NavText>
               <NavText>Mother</NavText>
-            </Tabs>
-            <Tabs
+            </Selector>
+            <Selector
               id="words"
               type={SelectorTypes.SLIDER}
               orientation={Orientation.HORIZONTAL}
@@ -177,8 +177,8 @@ export default function Home(): ReactElement {
               <NavText>Sun</NavText>
               <NavText>Stellar</NavText>
               <NavText>Meat</NavText>
-            </Tabs>
-            <Tabs
+            </Selector>
+            <Selector
               id="Convoy2"
               type={SelectorTypes.SLIDER}
               orientation={Orientation.VERTICAL}
@@ -186,7 +186,7 @@ export default function Home(): ReactElement {
               <NavText>Saturn</NavText>
               <NavText>Stellar</NavText>
               <NavText>Carne</NavText>
-            </Tabs>
+            </Selector>
           </section>
         </main>
       </div>
