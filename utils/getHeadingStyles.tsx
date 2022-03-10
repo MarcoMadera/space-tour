@@ -27,11 +27,5 @@ export function getHeadingStyles(
         ? "4.05px"
         : "unset"};
     }
-
-    @media (min-width: 0px) and (max-width: 500px) {
-      h1 {
-        font-size: 80px;
-      }
-    }
   `;
 }

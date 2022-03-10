@@ -5,31 +5,24 @@ import {
   ReactElement,
   isValidElement,
   ReactChild,
+  cloneElement,
 } from "react";
 import { AsType } from "types/Heading";
-import ALink from "./ALink";
 import Text from "./Text";
 
 const validateElement = (child: ReactChild, number: number) => {
-  if (isValidElement(child) && child?.type === "a") {
-    return (
-      <a {...child.props}>
-        <Text bold as={AsType.SPAN}>
-          {number < 10 ? `0${number}` : number}
-        </Text>{" "}
-        <Text as={AsType.SPAN}>{child.props.children}</Text>
-      </a>
-    );
-  }
-  if (isValidElement(child) && child?.type === ALink) {
-    return (
-      <ALink {...child.props}>
-        <Text bold as={AsType.SPAN}>
-          {number < 10 ? `0${number}` : number}
-        </Text>{" "}
-        <Text as={AsType.SPAN}>{child.props.children}</Text>
-      </ALink>
-    );
+  if (isValidElement(child)) {
+    return cloneElement(child, {
+      ...child.props,
+      children: (
+        <>
+          <Text bold as={AsType.SPAN}>
+            {number < 10 ? `0${number}` : number}
+          </Text>{" "}
+          <Text as={AsType.SPAN}>{child.props.children}</Text>
+        </>
+      ),
+    });
   }
   return (
     <>
@@ -102,7 +95,8 @@ export default function NavBar({
         li:hover {
           border-bottom: 3px solid rgba(255, 255, 255, 0.5);
         }
-        nav :global(a) {
+        nav :global(a),
+        nav :global(button) {
           text-decoration: none;
           height: 100%;
           width: 100%;
@@ -110,6 +104,12 @@ export default function NavBar({
           align-items: center;
           justify-content: center;
           column-gap: 14px;
+          font-size: 16px;
+          letter-spacing: inherit;
+          font-family: inherit;
+          background: none;
+          border: none;
+          cursor: pointer;
         }
       `}</style>
     </nav>

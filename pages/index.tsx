@@ -11,6 +11,7 @@ import MainButton, { ButtonType } from "components/MainButton";
 import ALink from "components/ALink";
 import Selector, { Orientation, SelectorTypes } from "components/Selector";
 import NavText from "components/NavText";
+import confetti from "https://cdn.skypack.dev/canvas-confetti";
 
 export default function Home(): ReactElement {
   return (
@@ -122,14 +123,35 @@ export default function Home(): ReactElement {
           </Heading>
           <NavBar>
             <ALink href="/">HOME</ALink>
-            <ALink href="/hovered">HOVERED</ALink>
+            <button
+              onClick={() => {
+                confetti({
+                  angle: -90,
+                  spread: 200,
+                  ticks: 500,
+                  decay: 0.85,
+                  origin: { x: 0.5, y: 0 },
+                  particleCount: 100,
+                  scalar: 1.2,
+                  colors: [Color.White, Color.Secondary],
+                });
+              }}
+            >
+              HOVERED
+            </button>
             <ALink href="/idle">IDLE</ALink>
           </NavBar>
           <section>
             <MainButton
               type={ButtonType.BUTTON}
               onClick={() => {
-                console.log("Explore clicked");
+                confetti({
+                  angle: 45,
+                  origin: { x: 0, y: 0.5 },
+                  particleCount: 100,
+                  scalar: 1.2,
+                  colors: [Color.White, Color.Secondary],
+                });
               }}
             >
               <Heading number={4} as={AsType.SPAN} color={Color.Primary}>
